@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Dancing+Script:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { background: #fff6fc; font-family: 'Cormorant Garamond', serif; }
+#root { min-height: 100vh; }
+::selection { background: #ffb8f9; color: #5e2b63; }
+
+@keyframes petalFall { from { transform: translateY(-14vh); } to { transform: translateY(116vh); } }
+@keyframes petalSway { from { transform: translateX(-16px) rotate(-25deg); } to { transform: translateX(16px) rotate(45deg); } }
+@keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+@keyframes sealPulse {
+  0%, 100% { box-shadow: 0 6px 22px rgba(192,80,160,.45), 0 0 0 0 rgba(255,184,249,.55); }
+  50% { box-shadow: 0 6px 22px rgba(192,80,160,.45), 0 0 0 14px rgba(255,184,249,0); }
+}
+@keyframes hintBob { 0%, 100% { transform: translateY(0); opacity: .55; } 50% { transform: translateY(8px); opacity: 1; } }

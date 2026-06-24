@@ -1,0 +1,8 @@
+Pon aquí tus fotos con estos nombres exactos:
+
+  1.jpg   → sección "Como me enamoré de ti"
+  2.jpg   → sección "Cuando supe que me gustabas"
+  4.jpg   → sección "Por qué quiero estar contigo"
+
+Pueden ser .jpg o .png (si usas .png, cambia la extensión en src/App.jsx).
+Si no pones foto, se muestra un marco vacío con una nota.
