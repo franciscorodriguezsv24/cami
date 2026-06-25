@@ -229,22 +229,116 @@ export default function App() {
       <Petals />
 
       {/* SOBRE */}
-      <div onClick={() => setOpened(true)} style={{ position: 'fixed', inset: 0, zIndex: 60, display: opened ? 'flex' : 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 34, cursor: 'pointer', background: 'linear-gradient(160deg,#fff3fb 0%, #f6e7ff 100%)', transition: 'opacity .9s ease, transform .9s ease', perspective: 1200, opacity: opened ? 0 : 1, transform: opened ? 'scale(1.08)' : 'none', pointerEvents: opened ? 'none' : 'auto', visibility: opened ? 'hidden' : 'visible', transitionProperty: 'opacity, transform, visibility', transitionDuration: '.9s, .9s, 0s', transitionDelay: opened ? '0s, 0s, .9s' : '0s' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 30, transition: 'opacity .5s ease, transform .6s ease', opacity: opened ? 0 : 1, transform: opened ? 'translateY(-46px) scale(.92)' : 'none' }}>
-          <div style={{ position: 'relative', width: 'min(420px,82vw)', height: 'min(280px,55vw)', filter: 'drop-shadow(0 24px 40px rgba(176,90,150,.28))', animation: 'floaty 6s ease-in-out infinite' }}>
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(155deg,#ffffff,#fdeafa)', border: '1px solid #f2cfee', borderRadius: 10 }} />
-            <div style={{ position: 'absolute', inset: 0, borderRadius: 10, overflow: 'hidden' }}>
-              <div style={{ position: 'absolute', bottom: 0, left: 0, width: '55%', height: '100%', background: 'linear-gradient(135deg,#fbe2f6,#f6d6f2)', clipPath: 'polygon(0 18%, 0 100%, 100% 100%)' }} />
-              <div style={{ position: 'absolute', bottom: 0, right: 0, width: '55%', height: '100%', background: 'linear-gradient(225deg,#fbe2f6,#f3d0ef)', clipPath: 'polygon(100% 18%, 100% 100%, 0 100%)' }} />
+      <div onClick={() => setOpened(true)} style={{ position: 'fixed', inset: 0, zIndex: 60, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 34, cursor: 'pointer', background: 'radial-gradient(120% 80% at 50% 30%, #fff7fb 0%, #f6e7ff 55%, #ecdcff 100%)', transition: 'opacity .9s ease, transform .9s ease', perspective: 1400, opacity: opened ? 0 : 1, transform: opened ? 'scale(1.08)' : 'none', pointerEvents: opened ? 'none' : 'auto', visibility: opened ? 'hidden' : 'visible', transitionProperty: 'opacity, transform, visibility', transitionDuration: '.9s, .9s, 0s', transitionDelay: opened ? '0s, 0s, .9s' : '0s' }}>
+        {/* halo de fondo del sobre */}
+        <div style={{ position: 'absolute', top: '38%', left: '50%', transform: 'translate(-50%,-50%)', width: 'min(640px,95vw)', height: 'min(640px,95vw)', borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,210,245,.55), rgba(214,184,255,.18) 55%, transparent 70%)', filter: 'blur(8px)', pointerEvents: 'none' }} />
+
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 30, transition: 'opacity .5s ease, transform .6s ease', opacity: opened ? 0 : 1, transform: opened ? 'translateY(-46px) scale(.92)' : 'none', position: 'relative' }}>
+          <div style={{ position: 'relative', width: 'min(440px,84vw)', height: 'min(300px,58vw)', animation: 'floaty 6s ease-in-out infinite' }}>
+            {/* sombra del sobre en el "suelo" */}
+            <div style={{ position: 'absolute', left: '6%', right: '6%', bottom: '-10%', height: '14%', borderRadius: '50%', background: 'radial-gradient(ellipse at center, rgba(160,70,140,.32), rgba(160,70,140,0) 70%)', filter: 'blur(6px)' }} />
+
+            {/* cuerpo del sobre */}
+            <div style={{ position: 'absolute', inset: 0, borderRadius: 12, overflow: 'hidden', background: 'linear-gradient(155deg,#fff8fd 0%, #ffe9f7 55%, #f7d6ee 100%)', boxShadow: 'inset 0 0 0 1px rgba(192,80,160,.18), inset 0 -28px 50px rgba(192,80,160,.10), 0 28px 50px rgba(176,90,150,.30), 0 8px 18px rgba(176,90,150,.18)' }}>
+              {/* textura sutil de papel */}
+              <div style={{ position: 'absolute', inset: 0, opacity: .35, mixBlendMode: 'overlay', background: 'repeating-linear-gradient(45deg, rgba(255,255,255,.18) 0 1px, transparent 1px 3px), repeating-linear-gradient(-45deg, rgba(170,90,150,.05) 0 1px, transparent 1px 4px)' }} />
+              {/* triángulos laterales (back panels) */}
+              <div style={{ position: 'absolute', bottom: 0, left: 0, width: '52%', height: '100%', background: 'linear-gradient(135deg,#fbe2f6 0%, #f4ccea 70%, #ebb8df 100%)', clipPath: 'polygon(0 18%, 0 100%, 100% 100%)', boxShadow: 'inset -1px 0 0 rgba(255,255,255,.5)' }} />
+              <div style={{ position: 'absolute', bottom: 0, right: 0, width: '52%', height: '100%', background: 'linear-gradient(225deg,#fbe2f6 0%, #f4ccea 70%, #ebb8df 100%)', clipPath: 'polygon(100% 18%, 100% 100%, 0 100%)', boxShadow: 'inset 1px 0 0 rgba(255,255,255,.5)' }} />
+              {/* costura/línea diagonal sutil */}
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, transparent 49.6%, rgba(168,65,154,.18) 49.9%, rgba(168,65,154,.18) 50.1%, transparent 50.4%), linear-gradient(225deg, transparent 49.6%, rgba(168,65,154,.18) 49.9%, rgba(168,65,154,.18) 50.1%, transparent 50.4%)' }} />
+              {/* destello especular */}
+              <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '50%', background: 'linear-gradient(180deg, rgba(255,255,255,.45), rgba(255,255,255,0) 80%)', pointerEvents: 'none' }} />
+              {/* borde interno */}
+              <div style={{ position: 'absolute', inset: 8, border: '1px dashed rgba(168,65,154,.18)', borderRadius: 8, pointerEvents: 'none' }} />
             </div>
-            <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '62%', transformOrigin: 'top center', transformStyle: 'preserve-3d', transition: 'transform .6s ease', zIndex: 3, clipPath: 'polygon(0 0, 100% 0, 50% 100%)', background: 'linear-gradient(180deg,#fcdcf6,#f4c6ee)', border: '1px solid #f0c4ec', borderTopLeftRadius: 10, borderTopRightRadius: 10, transform: opened ? 'rotateX(-172deg)' : 'none' }} />
-            <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: 78, height: 78, borderRadius: '50%', zIndex: 4, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'radial-gradient(circle at 35% 30%, #ff9bef, #c0509f 70%)', animation: 'sealPulse 3.2s ease-in-out infinite' }}>
-              <span style={{ fontFamily: "'Parisienne', cursive", fontSize: 30, color: '#fff4fc', lineHeight: 1, textShadow: '0 1px 2px rgba(120,30,90,.5)' }}>A&amp;C</span>
+
+            {/* hoja de papel asomándose por arriba */}
+            <div style={{ position: 'absolute', top: -6, left: '10%', right: '10%', height: '20%', background: 'linear-gradient(180deg,#ffffff,#fff4fb)', borderRadius: '6px 6px 2px 2px', boxShadow: '0 -2px 6px rgba(168,65,154,.10), 0 1px 0 rgba(168,65,154,.08) inset', zIndex: 2 }} />
+
+            {/* solapa superior */}
+            <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '62%', transformOrigin: 'top center', transformStyle: 'preserve-3d', transition: 'transform .8s cubic-bezier(.6,.02,.3,1)', zIndex: 3, clipPath: 'polygon(0 0, 100% 0, 50% 100%)', background: 'linear-gradient(180deg,#fde0f7 0%, #f5c4ed 70%, #eaa9de 100%)', borderTopLeftRadius: 12, borderTopRightRadius: 12, boxShadow: 'inset 0 -10px 20px rgba(168,65,154,.18), inset 0 1px 0 rgba(255,255,255,.7)', transform: opened ? 'rotateX(-172deg)' : 'none' }}>
+              {/* destello en la solapa */}
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '40%', background: 'linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0))', clipPath: 'polygon(0 0, 100% 0, 50% 100%)' }} />
+            </div>
+
+            {/* sello de cera (SVG con forma orgánica) */}
+            <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', zIndex: 4, width: 130, height: 130, animation: 'sealPulse 3.2s ease-in-out infinite', borderRadius: '50%' }}>
+              <svg viewBox="0 0 200 200" style={{ width: '100%', height: '100%', overflow: 'visible', filter: 'drop-shadow(0 10px 14px rgba(90,15,70,.45)) drop-shadow(0 3px 4px rgba(90,15,70,.35))' }}>
+                <defs>
+                  <radialGradient id="waxBody" cx="38%" cy="32%" r="75%">
+                    <stop offset="0%" stopColor="#e88ad0" />
+                    <stop offset="35%" stopColor="#c25aa6" />
+                    <stop offset="70%" stopColor="#9a2c80" />
+                    <stop offset="100%" stopColor="#6b1656" />
+                  </radialGradient>
+                  <radialGradient id="waxImprint" cx="50%" cy="50%" r="55%">
+                    <stop offset="0%" stopColor="#a8347e" />
+                    <stop offset="100%" stopColor="#7a1f63" />
+                  </radialGradient>
+                  <radialGradient id="waxShine" cx="35%" cy="28%" r="35%">
+                    <stop offset="0%" stopColor="rgba(255,235,250,.9)" />
+                    <stop offset="100%" stopColor="rgba(255,235,250,0)" />
+                  </radialGradient>
+                  <filter id="waxRough" x="-10%" y="-10%" width="120%" height="120%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" />
+                    <feDisplacementMap in="SourceGraphic" scale="1.5" />
+                  </filter>
+                </defs>
+
+                {/* cuerpo orgánico de la cera */}
+                <path
+                  d="M100 18
+                     C130 16, 150 26, 168 44
+                     C188 60, 188 92, 178 110
+                     C190 124, 184 148, 168 158
+                     C152 178, 124 184, 104 178
+                     C82 188, 56 182, 42 166
+                     C24 154, 16 130, 24 110
+                     C12 92, 18 64, 36 50
+                     C52 30, 76 18, 100 18 Z"
+                  fill="url(#waxBody)"
+                  stroke="rgba(60,5,45,.35)"
+                  strokeWidth="1"
+                />
+
+                {/* sombra interior para profundidad */}
+                <ellipse cx="100" cy="115" rx="78" ry="62" fill="rgba(60,5,45,.28)" opacity=".55" />
+
+                {/* impronta interior (círculo recesado) */}
+                <circle cx="100" cy="100" r="56" fill="url(#waxImprint)" />
+                <circle cx="100" cy="100" r="56" fill="none" stroke="rgba(40,0,30,.55)" strokeWidth="2" />
+                <circle cx="100" cy="100" r="56" fill="none" stroke="rgba(255,220,240,.25)" strokeWidth="0.8" strokeDasharray="2 3" />
+
+                {/* borde decorativo punteado del sello */}
+                <circle cx="100" cy="100" r="48" fill="none" stroke="rgba(255,225,245,.45)" strokeWidth="0.6" strokeDasharray="1.4 2.4" />
+
+                {/* monograma A&C */}
+                <text x="100" y="114" textAnchor="middle" fontFamily="'Parisienne', cursive" fontSize="48" fill="#fff2fb" style={{ filter: 'drop-shadow(0 1px 1px rgba(40,0,30,.65))' }}>A&amp;C</text>
+
+                {/* brillo especular superior */}
+                <ellipse cx="78" cy="55" rx="36" ry="22" fill="url(#waxShine)" opacity=".75" />
+                {/* highlight chico secundario */}
+                <ellipse cx="148" cy="68" rx="10" ry="6" fill="rgba(255,235,250,.55)" transform="rotate(-25 148 68)" />
+              </svg>
             </div>
           </div>
-          <div style={{ textAlign: 'center' }}>
-            <div style={{ fontFamily: "'Cormorant Garamond',serif", textTransform: 'uppercase', letterSpacing: '.42em', fontSize: '.78rem', color: '#c06fc0', marginBottom: 6 }}>una carta para ti</div>
-            <div style={{ fontFamily: "'Parisienne', cursive", fontSize: 'clamp(2.6rem,8vw,4rem)', lineHeight: 1, color: '#a8419a' }}>para {PARA}</div>
+
+          <div style={{ textAlign: 'center', marginTop: 18 }}>
+            <div style={{ fontFamily: "'Cormorant Garamond',serif", textTransform: 'uppercase', letterSpacing: '.5em', fontSize: '.78rem', color: '#b85aad', marginBottom: 8 }}>una carta para ti</div>
+            <div style={{ fontFamily: "'Parisienne', cursive", fontSize: 'clamp(2.6rem,8vw,4rem)', lineHeight: 1, color: '#a8419a', textShadow: '0 2px 18px rgba(255,184,249,.45)' }}>para {PARA}</div>
+            {/* divisor floral */}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, marginTop: 14 }}>
+              <span style={{ width: 50, height: 1, background: 'linear-gradient(90deg, transparent, #d49ad0)' }} />
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <circle cx="7" cy="7" r="2" fill="#c06fc0" />
+                <circle cx="7" cy="2" r="1.4" fill="#deb8ff" />
+                <circle cx="7" cy="12" r="1.4" fill="#deb8ff" />
+                <circle cx="2" cy="7" r="1.4" fill="#deb8ff" />
+                <circle cx="12" cy="7" r="1.4" fill="#deb8ff" />
+              </svg>
+              <span style={{ width: 50, height: 1, background: 'linear-gradient(270deg, transparent, #d49ad0)' }} />
+            </div>
           </div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, animation: 'hintBob 2.4s ease-in-out infinite' }}>
